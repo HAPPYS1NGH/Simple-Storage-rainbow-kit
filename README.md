@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Simple Storage Dapp
+This is a Simple Storage Dapp built with RainbowKit and wagmi. It allows users to store and retrieve a single integer value on the Ethereum blockchain.
 
-## Getting Started
+### Getting Started
+To use the Dapp, you will need an Ethereum wallet provider like Metamask and some test ether. Once you have those, follow the steps below:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+1. Clone this repository:
 ```
+  git clonehttps://github.com/HAPPYS1NGH/Simple-Storage-rainbow-kit.git
+  cd simple-storage-dapp
+```
+2. Install the dependencies:
+```
+  npm install
+```
+3. Start the development server:
+```
+npm run dev
+```
+4. Open your browser and navigate to http://localhost:3000. You should see the Simple Storage Dapp running.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Usage
+1. Connect your Ethereum wallet by clicking the "Connect" button in the top-right corner of the Dapp.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+2. To read the current stored number, click the "Reload" button. The current value will be displayed on the screen.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3. To store a new number, enter it in the input field and click the "Store" button. You will be prompted to confirm the transaction in your wallet. Once the transaction is confirmed, the new value will be stored on the blockchain.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### How it Works
+The Simple Storage Dapp is built with React and uses RainbowKit and wagmi to interact with the Ethereum blockchain.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The Dapp consists of a single page with three main components:
 
-## Learn More
+* A header with the Dapp name and a "Connect" button.
+* A display area that shows the current stored number and a "Reload" button.
+* An input field and a "Store" button for storing a new number.
+* When the Dapp is loaded, it connects to the Ethereum blockchain using the provider provided by the user's wallet. It then reads the current stored number from the smart contract and displays it on the screen.
 
-To learn more about Next.js, take a look at the following resources:
+When the user enters a new number and clicks the "Store" button, the Dapp uses the contract function writeNum to store the new value on the blockchain. The user is prompted to confirm the transaction in their wallet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After the transaction is confirmed, the Dapp reads the new stored number from the blockchain and displays it on the screen.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Smart Contract
+The smart contract used by the Simple Storage Dapp is a simple example that provides two functions:
 
-## Deploy on Vercel
+* `readNum`: Reads the current stored number.
+* `writeNum`: Writes a new number to the storage.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contract address and ABI are hardcoded into the Dapp, but you can update them to use your own contract if you like.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Contributing
+Contributions to the Simple Storage Dapp are welcome. To contribute:
+
+1. Fork this repository.
+
+2. Create a new branch for your changes:
+```
+git checkout -b my-new-branch
+```
+3. Make your changes and commit them:
+```
+git add .
+git commit -m "Add some feature"
+```
+4. Push your changes to your fork:
+```
+git push origin my-new-branch
+```
+5. Open a pull request.
+
+### License
+The Simple Storage Dapp is released under the MIT License. See LICENSE for details.
